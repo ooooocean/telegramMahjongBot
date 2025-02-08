@@ -1,8 +1,10 @@
+'''Executes and runs the Telegram bot'''
+
+import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
