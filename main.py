@@ -1,8 +1,10 @@
+"""Executes and runs the Telegram bot"""
+
+import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler
 from dotenv import load_dotenv
-import os
 
 load_dotenv()
 TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -12,9 +14,10 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="I'm a bot, please talk to me!")
+    """Runs the bot upon code execution"""
+    await context.bot.send_message(chat_id=update.effective_chat.id,
+                                   text="I'm a bot, please talk to me!")
 
 
 if __name__ == '__main__':
