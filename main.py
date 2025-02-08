@@ -1,4 +1,4 @@
-'''Executes and runs the Telegram bot'''
+"""Executes and runs the Telegram bot"""
 
 import os
 import logging
@@ -14,8 +14,8 @@ logging.basicConfig(
     level=logging.INFO
 )
 
-'''Runs the bot upon code execution'''
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Runs the bot upon code execution"""
     await context.bot.send_message(chat_id=update.effective_chat.id,
                                    text="I'm a bot, please talk to me!")
 
