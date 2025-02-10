@@ -306,16 +306,16 @@ def deal_tiles():
     player_three = []
     player_four = []
 
-    players = [player_one, player_two, player_three, player_four]
+    hands = [player_one, player_two, player_three, player_four]
 
     for i in range(13):
-        for player in players:
+        for player in hands:
             player.append(deck.pop())
-    players[0].append(deck.pop()) #14th tile for first player
+    hands[0].append(deck.pop()) #14th tile for first player
 
-    return players, deck
+    return hands, deck
 
-def draw_bonus_tiles(deck, hands):
+def draw_bonus_tiles(hands, deck):
     """Draws bonus tiles for each player"""
     messages = ""
     bonus_tiles = []
