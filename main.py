@@ -57,7 +57,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         if user_reactions[user_id] == 1:
             current_reactions += 1
-            await query.edit_message_text(text=f"current_reactions}/{REQUIRED_REACTIONS} players ready:\n"
+            await query.edit_message_text(text=f"{current_reactions}/{REQUIRED_REACTIONS} players ready:\n\n"
                                                f"{players_text}")
 
             # Check if we've reached the required number of reactions
