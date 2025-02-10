@@ -327,7 +327,7 @@ def draw_bonus_tiles(hands, deck):
                 hand.append = deck.pop() # adds a new tile
                 messages.append(f"Player {player} drew a {char} tile!")
 
-    return deck, hands, bonus_tiles, messages
+    return hands, deck, bonus_tiles, messages
 
 def array_to_string(arr):
     """Turns an array of arrays into an array of strings"""
