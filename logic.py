@@ -328,3 +328,11 @@ def draw_bonus_tiles(deck, hands):
                 messages.append(f"Player {player} drew a {char} tile!")
 
     return deck, hands, bonus_tiles, messages
+
+def array_to_string(arr):
+    """Turns an array of arrays into an array of strings"""
+    output = []
+    for ele in arr:
+        text = ''.join(ele)
+        output.append(text)
+    return output
