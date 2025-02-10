@@ -298,6 +298,7 @@ def create_deck():
     return deck
 
 def deal_tiles():
+    """Creates an array that contains an array of tiles, giving the first player an extra tile"""
     deck = create_deck()
 
     player_one = []
@@ -313,3 +314,17 @@ def deal_tiles():
     players[0].append(deck.pop()) #14th tile for first player
 
     return players
+
+def draw_bonus_tiles(deck, hands):
+    """Draws bonus tiles for each player"""
+    messages = ""
+    bonus_tiles = []
+    for player, hand in enumerate(hands):
+        for index, char in enumerate(hand):
+            if char in flowers_dict or char in animals_dict:
+                bonus = hand.pop(index) # remove the tiles from the players hand
+                bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
+                hand.append = deck.pop() # adds a new tile
+                messages.append(f"Player {player} drew a {char} tile!")
+
+    return deck, hands, bonus_tiles, messages
