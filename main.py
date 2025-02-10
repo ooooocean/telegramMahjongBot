@@ -19,14 +19,14 @@ logging.basicConfig(
 # Define the number of reactions required
 REQUIRED_REACTIONS = 1 # for production, this should be 4
 current_reactions = 0
-players = []
+player_names = []
 # Store user reactions in a dictionary
 user_reactions = {}
 
 def reset_reactions():
     global current_reactions, players, user_reactions
     current_reactions = 0
-    players = []
+    player_names = []
     user_reactions = {}
 
 # Start command handler
@@ -50,10 +50,10 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         # Count reactions per user
         user_reactions[user_id] = user_reactions.get(user_id, 0) + 1
-        players.append(query.from_user.first_name)
+        player_names.append(query.from_user.first_name)
 
         # Generate text for insertion into message
-        players_text = "\n".join(players)
+        players_text = "\n".join(players_names)
 
         if user_reactions[user_id] == 1:
             current_reactions += 1
@@ -66,8 +66,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
                 await query.message.reply_text(f"Starting game! Hands dealt...\n\n"
                                                f"{tiles}")
-                # Reset the counter
-                reset_reactions()
+                # Reset the counter - should be done at the end of the game
+                # reset_reactions()
 
 if __name__ == '__main__':
     application = ApplicationBuilder().token(TOKEN).build()
