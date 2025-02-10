@@ -317,7 +317,7 @@ def deal_tiles():
 
 def draw_bonus_tiles(hands, deck):
     """Draws bonus tiles for each player"""
-    messages = ""
+    messages = []
     bonus_tiles = []
     for player, hand in enumerate(hands):
         for index, char in enumerate(hand):
