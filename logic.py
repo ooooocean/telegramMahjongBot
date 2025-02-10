@@ -284,6 +284,7 @@ bamboo_dict = {
 
 
 def create_deck():
+    """Initialises the deck of tiles. For consistency, tiles are drawn from the end of the array."""
     winds = 4 * [wind["tile_unicode"] for wind in winds_dict.values()]
     dragons = 4 * [dragon["tile_unicode"] for dragon in dragons_dict.values()]
     flowers = [flower["tile_unicode"] for flower in flowers_dict.values()]
@@ -295,3 +296,20 @@ def create_deck():
     deck = winds + dragons + flowers + animals + dots + characters + bamboo
     random.shuffle(deck)
     return deck
+
+def deal_tiles():
+    deck = create_deck()
+
+    player_one = []
+    player_two = []
+    player_three = []
+    player_four = []
+
+    players = [player_one, player_two, player_three, player_four]
+
+    for i in range(13):
+        for player in players:
+            player.append(deck.pop())
+    players[0].append(deck.pop()) #14th tile for first player
+
+    return players

@@ -2,6 +2,7 @@
 
 import os
 import logging
+import logic
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (ApplicationBuilder, ContextTypes,
                           CommandHandler, Updater, CallbackQueryHandler)
@@ -16,7 +17,7 @@ logging.basicConfig(
 )
 
 # Define the number of reactions required
-REQUIRED_REACTIONS = 2 # for production, this should be 2
+REQUIRED_REACTIONS = 1 # for production, this should be 4
 current_reactions = 0
 players = []
 # Store user reactions in a dictionary
@@ -45,7 +46,6 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await query.answer()
 
     if query.data == 'react':
-        print(query)
         user_id = query.from_user.id
 
         # Count reactions per user
@@ -62,11 +62,12 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
             # Check if we've reached the required number of reactions
             if current_reactions >= REQUIRED_REACTIONS:
-                await query.message.reply_text("We've reached the required number of reactions!")
-                # Optionally, reset the counter
-                # reset_reactions()
-        else:
-            await query.edit_message_text(text=f"You've already reacted! Total reactions: {current_reactions}/{REQUIRED_REACTIONS}")
+                tiles = '\n'.join([''.join(sublist) for sublist in logic.deal_tiles()])
+
+                await query.message.reply_text(f"Starting game! Hands dealt...\n\n"
+                                               f"{tiles}")
+                # Reset the counter
+                reset_reactions()
 
 if __name__ == '__main__':
     application = ApplicationBuilder().token(TOKEN).build()
