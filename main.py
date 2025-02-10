@@ -53,7 +53,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         player_names.append(query.from_user.first_name)
 
         # Generate text for insertion into message
-        players_text = "\n".join(players_names)
+        players_text = "\n".join(player_names)
 
         if user_reactions[user_id] == 1:
             current_reactions += 1
