@@ -70,6 +70,14 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 # Reset the counter - should be done at the end of the game
                 # reset_reactions()
 
+                hands_arr, deck, bonus_tiles, messages = logic.draw_bonus_tiles(hands_arr, deck)
+                hands_str = logic.array_to_string(hands_arr)
+
+                await context.bot.send_message(chat_id=query.message.chat.id,
+                                               text=f"Bonus round!\n{messages}")
+                await context.bot.send_message(chat_id=query.message.chat.id,
+                                               text=f"Updated hands:\n\n{hands_str}")
+
 if __name__ == '__main__':
     application = ApplicationBuilder().token(TOKEN).build()
 

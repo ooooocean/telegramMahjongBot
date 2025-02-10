@@ -318,15 +318,18 @@ def deal_tiles():
 def draw_bonus_tiles(hands, deck):
     """Draws bonus tiles for each player"""
     messages = []
-    bonus_tiles = []
-    for player, hand in enumerate(hands):
-        for index, char in enumerate(hand):
-            if char in flowers_dict or char in animals_dict:
-                bonus = hand.pop(index) # remove the tiles from the players hand
-                bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
-                hand.append = deck.pop() # adds a new tile
-                messages.append(f"Player {player} drew a {bonus} tile!")
+    bonus_tiles = [[],[],[],[]]
+    combined_dict = {**flowers_dict, **animals_dict}
 
+    for player, hand in enumerate(hands):
+        for index, tile in enumerate(hand):
+            for key, value in combined_dict.items():
+                if tile == value["tile_unicode"]:
+                    bonus = hand.pop(index) # remove the tiles from the players hand
+                    bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
+                    hands[player].append(deck.pop()) # adds a new tile
+                    messages.append(f"Player {player} drew a {bonus} tile!")
+                    print(bonus)
     return hands, deck, bonus_tiles, messages
 
 def array_to_string(arr):
