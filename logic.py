@@ -75,7 +75,6 @@ dragons_dict = {
         "tile_unicode": "🀄",
         "name": "White Dragon",
         "type": "dragon",
-        "num_val": "",
     },
     "green_dragon": {
         "tile_unicode": "🀅",  # Using a placeholder, as the green dragon might not have a standard emoji
@@ -91,60 +90,175 @@ dragons_dict = {
 
 dots_dict = {
     "one_dot": {
-        "tile_unicode": "🀌",
+        "tile_unicode": "🀙",
         "name": "one dot",
         "type": "dot",
         "num_val": 1
     },
     "two_dots": {
-        "tile_unicode": "🀍",
+        "tile_unicode": "🀚",
         "name": "two dots",
         "type": "dot",
         "num_val": 2
     },
     "three_dots": {
-        "tile_unicode": "🀎",
+        "tile_unicode": "🀛",
         "name": "three dots",
         "type": "dot",
         "num_val": 3
     },
     "four_dots": {
-        "tile_unicode": "🀏",
+        "tile_unicode": "🀜",
         "name": "four dots",
         "type": "dot",
         "num_val": 4
     },
     "five_dots": {
-        "tile_unicode": "🀐",
+        "tile_unicode": "🀝",
         "name": "five dots",
         "type": "dot",
         "num_val": 5
     },
     "six_dots": {
-        "tile_unicode": "🀑",
+        "tile_unicode": "🀞",
         "name": "six dots",
         "type": "dot",
         "num_val": 6
     },
     "seven_dots": {
-        "tile_unicode": "🀒",
+        "tile_unicode": "🀟",
         "name": "seven dots",
         "type": "dot",
         "num_val": 7
     },
     "eight_dots": {
-        "tile_unicode": "🀓",
+        "tile_unicode": "🀠",
         "name": "eight dots",
         "type": "dot",
         "num_val": 8
     },
     "nine_dots": {
-        "tile_unicode": "🀔",
+        "tile_unicode": "🀡",
         "name": "nine dots",
         "type": "dot",
         "num_val": 9
     },
 }
+
+character_dict = {
+    "one_character": {
+        "tile_unicode": "🀇",
+        "name": "one character",
+        "type": "character",
+        "num_val": 1
+    },
+    "two_characters": {
+        "tile_unicode": "🀈",
+        "name": "two characters",
+        "type": "character",
+        "num_val": 2
+    },
+    "three_characters": {
+        "tile_unicode": "🀉",
+        "name": "three characters",
+        "type": "character",
+        "num_val": 3
+    },
+    "four_characters": {
+        "tile_unicode": "🀊",
+        "name": "four characters",
+        "type": "character",
+        "num_val": 4
+    },
+    "five_characters": {
+        "tile_unicode": "🀋",
+        "name": "five characters",
+        "type": "character",
+        "num_val": 5
+    },
+    "six_characters": {
+        "tile_unicode": "🀌",
+        "name": "six characters",
+        "type": "character",
+        "num_val": 6
+    },
+    "seven_characters": {
+        "tile_unicode": "🀍",
+        "name": "seven characters",
+        "type": "character",
+        "num_val": 7
+    },
+    "eight_characters": {
+        "tile_unicode": "🀎",
+        "name": "eight characters",
+        "type": "character",
+        "num_val": 8
+    },
+    "nine_characters": {
+        "tile_unicode": "🀏",
+        "name": "nine characters",
+        "type": "character",
+        "num_val": 9
+    },
+}
+
+bamboo_dict = {
+    "one_bamboo": {
+        "tile_unicode": "🀐",
+        "name": "one bamboo",
+        "type": "bamboo",
+        "num_val": 1
+    },
+    "two_bamboos": {
+        "tile_unicode": "🀑",
+        "name": "two bamboos",
+        "type": "bamboo",
+        "num_val": 2
+    },
+    "three_bamboos": {
+        "tile_unicode": "🀒",
+        "name": "three bamboos",
+        "type": "bamboo",
+        "num_val": 3
+    },
+    "four_bamboos": {
+        "tile_unicode": "🀓",
+        "name": "four bamboos",
+        "type": "bamboo",
+        "num_val": 4
+    },
+    "five_bamboos": {
+        "tile_unicode": "🀔",
+        "name": "five bamboos",
+        "type": "bamboo",
+        "num_val": 5
+    },
+    "six_bamboos": {
+        "tile_unicode": "🀕",
+        "name": "six bamboos",
+        "type": "bamboo",
+        "num_val": 6
+    },
+    "seven_bamboos": {
+        "tile_unicode": "🀖",
+        "name": "seven bamboos",
+        "type": "bamboo",
+        "num_val": 7
+    },
+    "eight_bamboos": {
+        "tile_unicode": "🀗",
+        "name": "eight bamboos",
+        "type": "bamboo",
+        "num_val": 8
+    },
+    "nine_bamboos": {
+        "tile_unicode": "🀘",
+        "name": "nine bamboos",
+        "type": "bamboo",
+        "num_val": 9
+    },
+}
+
 
 def tiles_init():
     deck = []
