@@ -311,7 +311,7 @@ def deal_tiles():
     for i in range(13):
         for player in hands:
             player.append(deck.pop())
-    hands[0].append(deck.pop()) #14th tile for first player
+    hands[0].append(deck.pop()) # 14th tile for first player
 
     return hands, deck
 
@@ -325,7 +325,7 @@ def draw_bonus_tiles(hands, deck):
                 bonus = hand.pop(index) # remove the tiles from the players hand
                 bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
                 hand.append = deck.pop() # adds a new tile
-                messages.append(f"Player {player} drew a {char} tile!")
+                messages.append(f"Player {player} drew a {bonus} tile!")
 
     return hands, deck, bonus_tiles, messages
 

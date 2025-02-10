@@ -62,10 +62,11 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
             # Check if we've reached the required number of reactions
             if current_reactions >= REQUIRED_REACTIONS:
-                tiles = '\n'.join([''.join(sublist) for sublist in logic.deal_tiles()])
+                hands_arr, deck = logic.deal_tiles()
+                hands_str = logic.array_to_string(hands_arr)
 
                 await query.message.reply_text(f"Starting game! Hands dealt...\n\n"
-                                               f"{tiles}")
+                                               f"{hands_str}")
                 # Reset the counter - should be done at the end of the game
                 # reset_reactions()
 
