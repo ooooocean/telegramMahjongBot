@@ -313,7 +313,7 @@ def deal_tiles():
             player.append(deck.pop())
     players[0].append(deck.pop()) #14th tile for first player
 
-    return players
+    return players, deck
 
 def draw_bonus_tiles(deck, hands):
     """Draws bonus tiles for each player"""
