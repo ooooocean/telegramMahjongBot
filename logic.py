@@ -1,3 +1,5 @@
+import random
+
 winds_dict = {
     "east_wind": {
         "tile_unicode": "🀀",
@@ -45,6 +47,68 @@ dragons_dict = {
         "name": "Red Dragon",
         "type": "dragon",
     },
+}
+
+flowers_dict = {
+    "plum": {
+        "tile_unicode": "🀢",
+        "name": "plum",
+        "num_val": 1
+    },
+    "orchid": {
+        "tile_unicode": "🀣",
+        "name": "orchid",
+        "num_val": 2
+    },
+    "chrysanthemum": {
+        "tile_unicode": "🀥",
+        "name": "chrysanthemum",
+        "num_val": 3
+    },
+    "bamboo": {
+        "tile_unicode": "🀤",
+        "name": "bamboo",
+        "num_val": 4
+    },
+    "spring": {
+        "tile_unicode": "🀦",
+        "name": "spring",
+        "num_val": 1,
+    },
+    "summer": {
+        "tile_unicode": "🀧",
+        "name": "summer",
+        "num_val": 2
+    },
+    "autumn": {
+        "tile_unicode": "🀨",
+        "name": "autumn",
+        "num_val": 3
+    },
+    "winter": {
+        "tile_unicode": "🀩",
+        "name": "winter",
+        "num_val": 4
+    },
+}
+
+animals_dict = {
+    "cat": {
+        "tile_unicode": "🐈",
+        "name": "cat",
+    },
+    "mouse": {
+        "tile_unicode": "🐁",
+        "name": "mouse",
+    },
+    "rooster": {
+        "tile_unicode": "🐓",
+        "name": "rooster",
+    },
+    "centipede": {
+        "tile_unicode": "🐛",
+        "name": "centipede",
+    }
 }
 
 dots_dict = {
@@ -219,5 +283,15 @@ bamboo_dict = {
 }
 
 
-def tiles_init():
-    deck = []
+def create_deck():
+    winds = 4 * [wind["tile_unicode"] for wind in winds_dict.values()]
+    dragons = 4 * [dragon["tile_unicode"] for dragon in dragons_dict.values()]
+    flowers = [flower["tile_unicode"] for flower in flowers_dict.values()]
+    animals = [animal["tile_unicode"] for animal in animals_dict.values()]
+    dots = 4 * [dot["tile_unicode"] for dot in dots_dict.values()]
+    characters = 4 * [character["tile_unicode"] for character in character_dict.values()]
+    bamboo = 4 * [bamboo["tile_unicode"] for bamboo in bamboo_dict.values()]
+
+    deck = winds + dragons + flowers + animals + dots + characters + bamboo
+    random.shuffle(deck)
+    return deck
