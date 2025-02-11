@@ -329,7 +329,6 @@ def draw_bonus_tiles(hands, deck):
                     bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
                     hands[player].append(deck.pop()) # adds a new tile
                     messages.append(f"Player {player} drew a {bonus} tile!")
-                    print(bonus)
     return hands, deck, bonus_tiles, messages
 
 def array_to_string(arr):
