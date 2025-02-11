@@ -17,11 +17,12 @@ logging.basicConfig(
 )
 
 # Define the number of reactions required
-REQUIRED_REACTIONS = 1 # for production, this should be 4
+REQUIRED_REACTIONS = 1  # for production, this should be 4
 current_reactions = 0
 player_names = []
 # Store user reactions in a dictionary
 user_reactions = {}
+
 
 def reset_reactions():
     """Resets checks that are used to start the mahjong game"""
@@ -29,6 +30,7 @@ def reset_reactions():
     current_reactions = 0
     player_names = []
     user_reactions = {}
+
 
 # Start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -39,6 +41,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     await update.message.reply_text('Waiting for players...!', reply_markup=reply_markup)
+
 
 # Callback query handler
 async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
