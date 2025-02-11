@@ -299,6 +299,7 @@ def create_deck():
     random.shuffle(deck)
     return deck
 
+
 def deal_tiles():
     """Creates an array that contains an array of tiles, giving the first player an extra tile"""
     deck = create_deck()
@@ -313,25 +314,27 @@ def deal_tiles():
     for _ in range(13):
         for player in hands:
             player.append(deck.pop())
-    hands[0].append(deck.pop()) # 14th tile for first player
+    hands[0].append(deck.pop())  # 14th tile for first player
 
     return hands, deck
+
 
 def draw_bonus_tiles(hands, deck):
     """Draws bonus tiles for each player"""
     messages = []
-    bonus_tiles = [[],[],[],[]]
+    bonus_tiles = [[], [], [], []]
     combined_dict = {**flowers_dict, **animals_dict}
 
     for player, hand in enumerate(hands):
         for index, tile in enumerate(hand):
             for _, value in combined_dict.items():
                 if tile == value["tile_unicode"]:
-                    bonus = hand.pop(index) # remove the tiles from the players hand
+                    bonus = hand.pop(index)  # remove the tiles from the players hand
                     bonus_tiles[player].append(bonus)
-                    hands[player].append(deck.pop()) # adds a new tile
+                    hands[player].append(deck.pop())  # adds a new tile
                     messages.append(f"Player {player} drew a {bonus} tile!")
     return hands, deck, bonus_tiles, messages
+
 
 def array_to_string(arr):
     """Turns an array of arrays into an array of strings"""
