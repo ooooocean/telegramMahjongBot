@@ -24,7 +24,8 @@ player_names = []
 user_reactions = {}
 
 def reset_reactions():
-    global current_reactions, players, user_reactions
+    """Resets checks that are used to start the mahjong game"""
+    global current_reactions, player_names, user_reactions
     current_reactions = 0
     player_names = []
     user_reactions = {}
@@ -57,8 +58,8 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
         if user_reactions[user_id] == 1:
             current_reactions += 1
-            await query.edit_message_text(text=f"{current_reactions}/{REQUIRED_REACTIONS} players ready:\n\n"
-                                               f"{players_text}")
+            await query.edit_message_text(text=f"{current_reactions}/{REQUIRED_REACTIONS} players ready:"
+                                               f"\n\n{players_text}")
 
             # Check if we've reached the required number of reactions
             if current_reactions >= REQUIRED_REACTIONS:
@@ -86,4 +87,3 @@ if __name__ == '__main__':
     application.add_handler(CallbackQueryHandler(button))
 
     application.run_polling()
-

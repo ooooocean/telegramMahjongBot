@@ -1,3 +1,5 @@
+"""Holds underlying logic for the mahjong game"""
+
 import random
 
 winds_dict = {
@@ -38,12 +40,12 @@ dragons_dict = {
         "type": "dragon",
     },
     "green_dragon": {
-        "tile_unicode": "🀅",  # Using a placeholder, as the green dragon might not have a standard emoji
+        "tile_unicode": "🀅",
         "name": "Green Dragon",
         "type": "dragon",
     },
     "red_dragon": {
-        "tile_unicode": "🀆",  # Using a placeholder, as the red dragon might not have a standard emoji
+        "tile_unicode": "🀆",
         "name": "Red Dragon",
         "type": "dragon",
     },
@@ -308,7 +310,7 @@ def deal_tiles():
 
     hands = [player_one, player_two, player_three, player_four]
 
-    for i in range(13):
+    for _ in range(13):
         for player in hands:
             player.append(deck.pop())
     hands[0].append(deck.pop()) # 14th tile for first player
@@ -323,10 +325,10 @@ def draw_bonus_tiles(hands, deck):
 
     for player, hand in enumerate(hands):
         for index, tile in enumerate(hand):
-            for key, value in combined_dict.items():
+            for _, value in combined_dict.items():
                 if tile == value["tile_unicode"]:
                     bonus = hand.pop(index) # remove the tiles from the players hand
-                    bonus_tiles[player].append(bonus) # adds the bonus tile to the player's bonus tile list
+                    bonus_tiles[player].append(bonus)
                     hands[player].append(deck.pop()) # adds a new tile
                     messages.append(f"Player {player} drew a {bonus} tile!")
     return hands, deck, bonus_tiles, messages
