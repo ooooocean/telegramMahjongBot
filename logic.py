@@ -336,10 +336,4 @@ def draw_bonus_tiles(hands, deck):
     return hands, deck, bonus_tiles, messages
 
 
-def array_to_string(arr):
-    """Turns an array of arrays into an array of strings"""
-    output = []
-    for ele in arr:
-        text = ''.join(ele)
-        output.append(text)
-    return output
+
